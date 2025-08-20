@@ -118,6 +118,18 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddHttpClient();
 
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 // Add background services
 builder.Services.AddHostedService<StockPriceUpdateService>();
 
@@ -137,6 +149,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -163,8 +177,6 @@ async Task SeedAdmin(UserManager<AppUser> userManager)
         {
             UserName = "admin",
             Email = adminEmail,
-            FirstName = "Admin",
-            LastName = "User",
             EmailConfirmed = true,
             DateJoined = DateTime.Now,
             LastLogin = DateTime.Now

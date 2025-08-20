@@ -13,12 +13,6 @@ namespace server.DTOs.Auth
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
-        [StringLength(100)]
-        public string FirstName { get; set; } = string.Empty;
-
-        [StringLength(100)]
-        public string LastName { get; set; } = string.Empty;
-
         public DateTime DateJoined { get; set; } = DateTime.Now;
 
         public DateTime LastLogin { get; set; } = DateTime.Now;

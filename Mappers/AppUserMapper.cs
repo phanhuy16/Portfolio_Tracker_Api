@@ -12,8 +12,6 @@ namespace server.Mappers
                 Id = userDto.Id,
                 UserName = userDto.UserName!,
                 Email = userDto.Email!,
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
                 DateJoined = userDto.DateJoined,
                 LastLogin = userDto.LastLogin,
                 Currency = userDto.Currency,

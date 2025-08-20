@@ -8,7 +8,7 @@ using server.Models;
 
 namespace server.Controllers
 {
-    [Route("api/client/auth")]
+    [Route("api/client/account")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -40,8 +40,6 @@ namespace server.Controllers
                 {
                     UserName = register.Username,
                     Email = register.Email,
-                    FirstName = register.FirstName,
-                    LastName = register.LastName,
                     DateJoined = DateTime.Now,
                     LastLogin = DateTime.Now,
                 };
@@ -54,14 +52,12 @@ namespace server.Controllers
                     if (roleResult.Succeeded)
                     {
                         // Send welcome email
-                        await _emailService.SendWelcomeEmailAsync(user.Email!, user.FirstName, user.LastName);
+                        await _emailService.SendWelcomeEmailAsync(user.Email!);
 
                         return Ok(new UserDto
                         {
                             Username = user.UserName!,
                             Email = user.Email!,
-                            FirstName = user.FirstName,
-                            LastName = user.LastName,
                             Token = _tokenService.CreateToken(user)
                         });
                     }
@@ -106,8 +102,6 @@ namespace server.Controllers
             {
                 Username = user.UserName!,
                 Email = user.Email!,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
                 Token = _tokenService.CreateToken(user)
             });
         }

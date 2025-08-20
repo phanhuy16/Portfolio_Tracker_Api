@@ -51,13 +51,13 @@ namespace server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ad8a089d-5ba2-4bd1-834e-70bb5b5d3cee",
+                            Id = "86192ebb-638a-4264-9708-a22b0bbd3525",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "bd2be6a6-6687-45e1-b299-f244873a04c0",
+                            Id = "ef022da2-1cfa-4d70-a042-8db56311d6b7",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -246,18 +246,8 @@ namespace server.Migrations
                     b.Property<bool>("EmailNotifications")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<DateTime>("LastLogin")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -449,7 +439,7 @@ namespace server.Migrations
                             Industry = "Technology",
                             IsActive = true,
                             LastDiv = 0.96m,
-                            LastUpdated = new DateTime(2025, 8, 16, 14, 50, 51, 953, DateTimeKind.Local).AddTicks(1579),
+                            LastUpdated = new DateTime(2025, 8, 19, 21, 45, 51, 91, DateTimeKind.Local).AddTicks(3796),
                             MarketCap = 2800000000000L,
                             PERatio = 28.5m,
                             Purchase = 150.00m,
@@ -465,7 +455,7 @@ namespace server.Migrations
                             Industry = "Technology",
                             IsActive = true,
                             LastDiv = 0.00m,
-                            LastUpdated = new DateTime(2025, 8, 16, 14, 50, 51, 953, DateTimeKind.Local).AddTicks(1629),
+                            LastUpdated = new DateTime(2025, 8, 19, 21, 45, 51, 91, DateTimeKind.Local).AddTicks(3832),
                             MarketCap = 1800000000000L,
                             PERatio = 25.2m,
                             Purchase = 2500.00m,
@@ -481,7 +471,7 @@ namespace server.Migrations
                             Industry = "Technology",
                             IsActive = true,
                             LastDiv = 2.72m,
-                            LastUpdated = new DateTime(2025, 8, 16, 14, 50, 51, 953, DateTimeKind.Local).AddTicks(1641),
+                            LastUpdated = new DateTime(2025, 8, 19, 21, 45, 51, 91, DateTimeKind.Local).AddTicks(3845),
                             MarketCap = 2400000000000L,
                             PERatio = 27.8m,
                             Purchase = 300.00m,

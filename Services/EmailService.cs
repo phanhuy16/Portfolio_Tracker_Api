@@ -44,10 +44,10 @@ namespace server.Services
             await SendHtmlEmailAsync(email, subject, htmlTemplate);
         }
 
-        public async Task SendWelcomeEmailAsync(string email, string firstName, string lastName)
+        public async Task SendWelcomeEmailAsync(string email)
         {
             var subject = "🎉 Welcome to Portfolio Tracker!";
-            var htmlTemplate = GetWelcomeEmailTemplate(firstName, lastName);
+            var htmlTemplate = GetWelcomeEmailTemplate(email);
             await SendHtmlEmailAsync(email, subject, htmlTemplate);
         }
 
@@ -339,7 +339,7 @@ namespace server.Services
                 </html>";
         }
 
-        private string GetWelcomeEmailTemplate(string firstName, string lastName)
+        private string GetWelcomeEmailTemplate(string email)
         {
             return $@"
                 <!DOCTYPE html>
@@ -421,7 +421,7 @@ namespace server.Services
                             <h1>🎉 Chào mừng đến với Portfolio Tracker!</h1>
                         </div>
                         <div class='content'>
-                            <h2>Xin chào {firstName} {lastName}!</h2>
+                            <h2>Xin chào {email}!</h2>
                             <p>Cảm ơn bạn đã tham gia Portfolio Tracker. Bây giờ bạn đã sẵn sàng để:</p>
                             <div class='features'>
                                 <ul>
