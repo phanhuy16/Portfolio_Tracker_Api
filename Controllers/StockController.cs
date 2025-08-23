@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using server.DTOs.Stocks;
 using server.Helpers;
 using server.Interfaces;
@@ -8,6 +9,7 @@ namespace server.Controllers
 {
     [Route("api/client/stock")]
     [ApiController]
+    [Authorize]
     public class StockController : ControllerBase
     {
         private readonly IStockRepository _stockRepository;

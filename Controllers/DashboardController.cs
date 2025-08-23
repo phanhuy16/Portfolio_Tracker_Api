@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using server.Extensions;
@@ -9,6 +10,7 @@ namespace server.Controllers
 {
     [Route("api/dashboard")]
     [ApiController]
+    [Authorize]
     public class DashboardController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;

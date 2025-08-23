@@ -115,8 +115,17 @@ builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IStockPriceService, StockPriceService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IStockDataService, StockDataService>();
 
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient<StockDataService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+builder.Services.AddHttpClient<StockPriceService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 
 // Configure CORS
 builder.Services.AddCors(options =>

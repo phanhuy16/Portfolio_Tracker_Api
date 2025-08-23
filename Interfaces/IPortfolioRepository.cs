@@ -11,5 +11,6 @@ namespace server.Interfaces
         Task<Portfolio> CreateAsync(Portfolio portfolio);
         Task<Portfolio?> UpdateAsync(string userId, int stockId, UpdatePortfolioDto portfolioDto);
         Task<Portfolio?> DeleteAsync(string userId, int stockId);
+        Task SaveChangesAsync();
     }
 }

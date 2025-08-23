@@ -180,5 +180,10 @@ namespace server.Repository
                 throw new Exception("An error occurred while updating the portfolio.", ex);
             }
         }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

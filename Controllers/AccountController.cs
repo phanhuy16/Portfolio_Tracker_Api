@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace server.Controllers
 {
     [Route("api/client/account")]
     [ApiController]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -29,6 +31,7 @@ namespace server.Controllers
         }
 
         [HttpPost("register")]
+        [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto register)
         {
             try
@@ -78,6 +81,7 @@ namespace server.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto login)
         {
             if (!ModelState.IsValid)
@@ -96,7 +100,7 @@ namespace server.Controllers
             await _userManager.UpdateAsync(user);
 
             // Send welcome email if this is the first login
-            //await _emailService.SendWelcomeEmailAsync(user.Email!, user.FirstName, user.LastName);
+            //await _emailService.SendWelcomeEmailAsync(user.Email!);
 
             return Ok(new UserDto
             {

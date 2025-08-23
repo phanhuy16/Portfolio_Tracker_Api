@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Bỏ qua thư mục migrations
 Migrations/
+
+# Thư mục chứa các tệp tin tạm thời
+appsettings.json	
